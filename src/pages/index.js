@@ -13,7 +13,12 @@ export default function Home({ items }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-          {items.map(book => <div>{book.fields.title}</div>)}
+        {items.map((book) => (
+          <>
+            <h1>{book.fields.title}</h1>
+            <div>{book.fields.author}</div>
+          </>
+        ))}
       </div>
     </div>
   );
