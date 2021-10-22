@@ -15,7 +15,7 @@ export default function Home({ books }) {
       <div>
         <Row>
           {books.map((book) => (
-            <Col span={6}>
+            <Col span={6} key={book.sys.id}>
               <img width="100%" src={book.fields.cover.fields.file.url} />
               <h1>{book.fields.title}</h1>
               <div>{book.fields.author}</div>
