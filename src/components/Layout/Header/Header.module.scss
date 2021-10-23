@@ -34,16 +34,17 @@
       display: flex;
       // justify-content: space-around;
       list-style: none;
+      li {
+        color: #fff;
+        padding: 20px 20px;
+        font-size: 1.5em;
+      }
       .history,
       .story,
       .home,
       .political {
         transition: all 0.3s;
-        color: #fff;
-        li {
-          padding: 20px 20px;
-          font-size: 1.5em;
-        }
+
         &:hover {
           margin-top: -8px;
         }
