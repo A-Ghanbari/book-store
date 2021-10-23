@@ -2,7 +2,6 @@ import SinglePage from "../../components/SinglePage";
 import { fetchEntry } from "../../helper/contentfull";
 
 function Book({ book }) {
-  console.log(book);
   return (
     <>
       <SinglePage post={book} />
