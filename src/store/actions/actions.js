@@ -13,10 +13,20 @@ function logout(payload) {
     return {type: 'logout', payload}
 }
 
+function addCart(payload) {
+    return {type: 'addCart', payload}
+}
+
+function removeCart(payload) {
+    return {type: 'removeCart', payload}
+}
+
 const authentication = bindActionCreators({
         signup,
         login,
-        logout
+        logout,
+        addCart,
+        removeCart
     },
     store.dispatch
 )
