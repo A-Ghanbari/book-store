@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import Head from "next/head";
-
+import Link from "next/link";
 import { fetchEntries } from "../helper/contentfull";
 
 export default function Home({ books }) {
@@ -16,7 +16,11 @@ export default function Home({ books }) {
         <Row>
           {books.map((book) => (
             <Col span={6} key={book.sys.id}>
-              <img width="100%" src={book.fields.cover.fields.file.url} />
+              <Link href={`/book/${book.sys.id}`}>
+                <a>
+                  <img width="100%" src={book.fields.cover.fields.file.url} />
+                </a>
+              </Link>
               <h1>{book.fields.title}</h1>
               <div>{book.fields.author}</div>
             </Col>

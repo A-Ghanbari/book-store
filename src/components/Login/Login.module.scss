@@ -1,0 +1,32 @@
+.login {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+
+  content: "";
+  background-color: rgba(0, 0, 0, 0.835);
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+
+    .singin {
+      background-color: aqua;
+      padding: 50px;
+      margin-left: 100px;
+      inupt {
+        padding: 20px;
+      }
+    }
+    .singup {
+      background-color: burlywood;
+      padding: 50px;
+      margin-right: 100px;
+    }
+  }
+}
