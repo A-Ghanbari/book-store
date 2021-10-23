@@ -3,8 +3,13 @@ import Link from "next/link";
 import { useState } from "react";
 import Login from "../../Login";
 import classes from "./Header.module.scss";
+import {useSelector} from "react-redux";
 
 export default function Header() {
+  // SIAVASH------------------------------------------------------------------------------------------
+  const user = useSelector((state) => state.user)
+  console.log('Details User in Head Site => ', user)
+  // SIAVASH-------------------------------------------------------------------------------------------
   const [flag, setFlag] = useState(false);
   return (
     <div>
@@ -53,6 +58,13 @@ export default function Header() {
                 </a>
               </Link>
             </li>
+             {/*SIAVASH-------------------------------------------------------------*/}
+            <li>
+              <a>
+                {user && <h1>{`Welcome ${user}`}</h1>}
+              </a>
+            </li>
+            {/*SIAVASH---------------------------------------------------------------*/}
           </ul>
         </Col>
       </Row>

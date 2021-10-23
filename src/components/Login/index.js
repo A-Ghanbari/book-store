@@ -1,18 +1,36 @@
 import { useState } from "react";
 import classes from "./Login.module.scss";
+import authentication from "../../store/actions/actions";
+import {useSelector} from "react-redux";
+
 
 export default function Login({ flag }) {
   const [data, setData] = useState(true);
-  const [formState, setFormState] = useState({
+  const [signupInput, setSignupInput] = useState({
     user: "",
     pass: "",
   });
-
-  function handelSubmit(e) {
+  const [loginInput, setLoginInput] = useState({
+    user: "",
+    pass: "",
+  });
+  function handelSignup(e) {
     e.preventDefault();
+    if (signupInput.user && signupInput.pass) {
+      authentication.signup({user: signupInput.user, pass:signupInput.pass})
+    }
   }
-  function handleChangeInput(e) {
-    setFormState({ ...formState, [e.target.name]: e.target.value });
+  function handelLogin(e) {
+    e.preventDefault();
+    if (loginInput.user && loginInput.pass) {
+      authentication.login({user: loginInput.user, pass:loginInput.pass})
+    }
+  }
+  function handleChangeInputSignUp(e) {
+    setSignupInput({ ...signupInput, [e.target.name]: e.target.value });
+  }
+  function handleChangeInputLogin(e) {
+    setLoginInput({ ...loginInput, [e.target.name]: e.target.value });
   }
 
   return (
@@ -22,15 +40,15 @@ export default function Login({ flag }) {
           //-------------------- sing in ----------------
           <div className={classes.singin}>
             <h1>ورود به حساب کاربری</h1>
-            <form onSubmit={handelSubmit}>
+            <form onSubmit={handelLogin}>
               <div>
                 <label htmlFor="user">نام کاربری :</label>
                 <input
                   type="text"
                   placeholder=" نام کاربری"
-                  value={formState.user}
+                  value={loginInput.user}
                   name="user"
-                  onChange={handleChangeInput}
+                  onChange={handleChangeInputLogin}
                 />
               </div>
               <div>
@@ -38,9 +56,9 @@ export default function Login({ flag }) {
                 <input
                   type="password"
                   placeholder="رمز"
-                  value={formState.pass}
+                  value={loginInput.pass}
                   name="pass"
-                  onChange={handleChangeInput}
+                  onChange={handleChangeInputLogin}
                 />
               </div>
 
@@ -61,15 +79,15 @@ export default function Login({ flag }) {
           //-----------------sing up -------------------
           <div className={classes.singup}>
             <h1> ایجاد حساب کاربری</h1>
-            <form onSubmit={handelSubmit}>
+            <form onSubmit={handelSignup}>
               <div>
                 <label htmlFor="user">نام کاربری :</label>
                 <input
                   type="text"
                   placeholder="نام کاربری"
-                  value={formState.user}
+                  value={signupInput.user}
                   name="user"
-                  onChange={handleChangeInput}
+                  onChange={handleChangeInputSignUp}
                 />
               </div>
               <div>
@@ -77,14 +95,13 @@ export default function Login({ flag }) {
                 <input
                   type="password"
                   placeholder="رمز"
-                  value={formState.pass}
+                  value={signupInput.pass}
                   name="pass"
-                  onChange={handleChangeInput}
+                  onChange={handleChangeInputSignUp}
                 />
               </div>
 
               <button type="submit">ثبت نام</button>
-
               <div>
                 <button
                   style={{ marginTop: 30 }}
