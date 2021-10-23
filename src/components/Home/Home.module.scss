@@ -1,0 +1,161 @@
+//-----------last book -----------------------
+.lastbook {
+  position: relative;
+  .lastbg {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-image: url(/images/librarybg.jpg);
+    background-size: cover;
+  }
+  .lastcard {
+    background-color: rgba(5, 0, 29, 0.781);
+
+    padding: 50px;
+    position: relative;
+    h1,
+    h2 {
+      color: rgb(255, 255, 255);
+      text-align: center;
+    }
+    p {
+      color: aliceblue;
+      font-size: 1.2em;
+      padding: 10px 50px;
+    }
+    img {
+      width: 70%;
+    }
+  }
+}
+//--------------home login----------
+.login {
+  height: 60vh;
+  .loginbg {
+    background-image: url(/images/candlelight.jpg);
+    // background-image: url(/images/seamless.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .loginbgtxt {
+    background-image: url(/images/seamless.jpg);
+    // background-image: url(/images/candlelight.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    .loginbox {
+      background-color: #0c0d2aa6;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .logintxt {
+        padding: 70px;
+        background-color: #ffffff;
+        text-align: center;
+      }
+    }
+  }
+}
+//-------------top slider----------
+.topslider {
+  .slide1,
+  .slide2,
+  .slide3 {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    h1 {
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      color: #fff;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      background-color: rgba(14, 10, 41, 0.849);
+      width: 50%;
+    }
+  }
+  .slide1 {
+    background-image: url(/images/1.jpg);
+  }
+  .slide2 {
+    background-image: url(/images/2.jpg);
+  }
+  .slide3 {
+    background-image: url(/images/3.jpg);
+  }
+}
+//-----------------------
+.swiper {
+  margin: 100px 50px;
+  padding: 50px;
+  .slide {
+    margin: 0 20px;
+    h3 {
+      background-color: rgba(5, 5, 5, 0.89);
+      color: #fff;
+      text-align: center;
+      position: absolute;
+      bottom: 10%;
+      font-size: 1.3em;
+      visibility: hidden;
+    }
+    &:hover {
+      box-shadow: 0 0 10px 10px rgb(95, 95, 95);
+      h3 {
+        visibility: visible;
+      }
+    }
+  }
+}
+//----------------category---------------
+.cats {
+  padding: 100px 50px;
+  .cat {
+    background-color: #09041d;
+    height: 200px;
+    width: 100px;
+    border-radius: 50%;
+    h1 {
+      position: absolute;
+      bottom: 0;
+      right: 35%;
+      color: #09041d;
+      margin-bottom: -40px;
+    }
+  }
+  .his,
+  .pol,
+  .sto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .his {
+    background-image: url(/images/history.png);
+  }
+  .pol {
+    background-image: url(/images/policitcs.png);
+  }
+  .sto {
+    background-image: url(/images/drama.png);
+  }
+}

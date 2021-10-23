@@ -1,6 +1,32 @@
 .header {
-  background-color: rgb(134, 134, 134);
-  padding: 0 20px;
+  --color-bg: #191927;
+  --color-blue: #00c6eb;
+  --color-green: #81d52e;
+  --color-yellow: #fdd00f;
+  --color-pink: #d42c70;
+  --color-orange: #ff3b18;
+
+  background-color: var(--color-bg);
+  padding: 0;
+  font-family: "Gandom";
+  .logo {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    .logobg {
+      background-image: url("/images/logo.png");
+
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+
   .menu {
     ul {
       padding: 0;
@@ -8,15 +34,36 @@
       display: flex;
       // justify-content: space-around;
       list-style: none;
-      a {
+      li {
         color: #fff;
-        li {
-          padding: 10px 20px;
-          font-size: 1.5em;
-        }
+        padding: 20px 20px;
+        font-size: 1.5em;
+      }
+      .history,
+      .story,
+      .home,
+      .political {
+        transition: all 0.3s;
+
         &:hover {
-          background-color: rgb(0, 225, 255);
+          margin-top: -8px;
         }
+      }
+      .home:hover {
+        color: var(--color-yellow);
+        border-bottom: 8px solid var(--color-yellow);
+      }
+      .history:hover {
+        color: var(--color-blue);
+        border-bottom: 8px solid var(--color-blue);
+      }
+      .story:hover {
+        color: var(--color-orange);
+        border-bottom: 8px solid var(--color-orange);
+      }
+      .political:hover {
+        color: var(--color-green);
+        border-bottom: 8px solid var(--color-green);
       }
     }
   }

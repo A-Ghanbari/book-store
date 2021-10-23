@@ -3,64 +3,77 @@ import Link from "next/link";
 import {useEffect, useState} from "react";
 import Login from "../../Login";
 import classes from "./Header.module.scss";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+
+import { CgProfile, CgLogIn } from "react-icons/cg";
+import { BsCart4 } from "react-icons/bs";
 
 export default function Header() {
   // SIAVASH------------------------------------------------------------------------------------------
-  const user = useSelector((state) => state.user)
-  console.log('Details User in Head Site => ', user)
+  const user = useSelector((state) => state.user);
+  console.log("Details User in Head Site => ", user);
   // SIAVASH-------------------------------------------------------------------------------------------
   const [flag, setFlag] = useState(false);
   return (
     <div>
       <Row justify="space-around" className={classes.header}>
         <Col span={5} className={classes.logo}>
-          Book Store
+          <Link href="/">
+            <div className={classes.logobg} />
+          </Link>
         </Col>
         <Col span={19} className={classes.menu}>
           <ul>
             <Link href="/">
-              <a>
+              <a className={classes.home}>
                 <li>خانه</li>
               </a>
             </Link>
             <Link href="/category/history">
-              <a>
+              <a className={classes.history}>
                 <li>تاریخی</li>
               </a>
             </Link>
             <Link href="/category/political">
-              <a>
+              <a className={classes.political}>
                 <li>سیاسی</li>
               </a>
             </Link>
             <Link href="/category/story">
-              <a>
+              <a className={classes.story}>
                 <li>ادبیات و داستان</li>
               </a>
             </Link>
-            <li>
-              <button
-                className={classes.button}
-                onClick={() => {
-                  setFlag(true);
-                }}
-              >
-                ورود و عضویت
-              </button>
+            <li
+              className={classes.button}
+              onClick={() => {
+                setFlag(true);
+              }}
+            >
+              ورود
+              <CgLogIn />
             </li>
             <li>
               <Link href="/cart">
                 <a>
-                  <button style={{ color: "red" }}>سبد خرید</button>
+                  <BsCart4 />
                 </a>
               </Link>
             </li>
-             {/*SIAVASH-------------------------------------------------------------*/}
+            {/*SIAVASH-------------------------------------------------------------*/}
             <li>
-              <a>
-                {user && <h1>{`Welcome ${user}`}</h1>}
-              </a>
+              {user && (
+                <>
+                  <CgProfile style={{ display: "inline-block" }} />
+                  <p
+                    style={{
+                      margin: 0,
+                      color: "#fff",
+                      display: "inline-block",
+                    }}
+                  >{`Welcome ${user} `}</p>
+                </>
+              )}
             </li>
             {/*SIAVASH---------------------------------------------------------------*/}
           </ul>

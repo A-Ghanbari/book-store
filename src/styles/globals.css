@@ -1,11 +1,19 @@
+@font-face {
+  font-family: "Gandom";
+  src: url(/fonts/Gandom.ttf);
+}
+@font-face {
+  font-family: "jadid";
+  src: url(/fonts/jadid.ttf);
+}
+
 html,
 body {
   direction: rtl;
   background-color: rgb(218, 218, 218) !important;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Gandom";
 }
 
 a {
@@ -15,4 +23,7 @@ a {
 
 * {
   box-sizing: border-box;
+}
+img {
+  width: 100%;
 }
