@@ -10,27 +10,29 @@ export default function Header() {
     <div>
       <Row justify="space-around" className={classes.header}>
         <Col span={5} className={classes.logo}>
-          Book Store
+          <Link href="/">
+            <div className={classes.logobg} />
+          </Link>
         </Col>
         <Col span={19} className={classes.menu}>
           <ul>
             <Link href="/">
-              <a>
+              <a className={classes.home}>
                 <li>خانه</li>
               </a>
             </Link>
             <Link href="/category/history">
-              <a>
+              <a className={classes.history}>
                 <li>تاریخی</li>
               </a>
             </Link>
             <Link href="/category/political">
-              <a>
+              <a className={classes.political}>
                 <li>سیاسی</li>
               </a>
             </Link>
             <Link href="/category/story">
-              <a>
+              <a className={classes.story}>
                 <li>ادبیات و داستان</li>
               </a>
             </Link>

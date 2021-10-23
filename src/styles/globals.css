@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Gandom";
+  src: url(/fonts/Gandom.ttf);
+}
+@font-face {
+  font-family: "jadid";
+  src: url(/fonts/jadid.ttf);
+}
+
 html,
 body {
   direction: rtl;
