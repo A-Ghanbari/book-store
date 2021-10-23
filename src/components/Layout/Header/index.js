@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import Link from "next/link";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import Login from "../../Login";
 import classes from "./Header.module.scss";
 import {useSelector} from "react-redux";
