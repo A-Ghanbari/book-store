@@ -4,7 +4,8 @@ export default function cartReducer(state =new Map(), action) {
             state.set(action.payload.title, action.payload)
             return  state
         case 'removeCart':
-            return  state.filter(state => state !== action.payload)
+            const books =[ ...state.values() ];
+            return  books.filter(book => book.title !== action.payload.title)
         default:
             return state
     }
