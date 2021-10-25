@@ -1,12 +1,26 @@
-import {Row, Col} from "antd";
+import {Row, Col, Button} from "antd";
 import classes from "./SinglePage.module.scss";
 import authentication from "../../store/actions/actions";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 
 export default function SinglePage({post}) {
-  const [flag, setFlag] = useState(true)
+    const [flagCart, setFlagCart] = useState(false)
+    const [flagMark, setFlagMark] = useState(false)
     const [number, setNumber] = useState(1)
+    useEffect(() => {
+        if (localStorage.getItem('bookMark')) {
+            const booksMark = new Map(JSON.parse(localStorage.bookMark));
+            const keyBookMark = [...booksMark.keys()]
+            setFlagMark(keyBookMark.includes(post.title))
+        }
+        if (localStorage.getItem('cart')) {
+            const booksMark = new Map(JSON.parse(localStorage.cart));
+            const keyBookMark = [...booksMark.keys()]
+            setFlagCart(keyBookMark.includes(post.title))
+        }
+    }, [])
+
     return (
         <div>
             <Row gutter={[20]}>
@@ -17,22 +31,33 @@ export default function SinglePage({post}) {
                     <h1>{post.title}</h1>
                     <h2>نویسنده : {post.author}</h2>
                     <h3>قیمت : {post.price}</h3>
-                  {flag ? (
-                      <>
-                          <button onClick={() => {
-                              authentication.addCart({...post, count: number})
-                              setFlag(!flag)
-                          }}>اضافه به سبد خرید
-                          </button>
-                          <input type='number' value={number} onChange={(e) => setNumber(e.target.value)}/>
-                      </>
-                  ) : (
-                      <button onClick={() => {
-                        authentication.removeCart(post)
-                        setFlag(!flag)
-                      }}>حذف از سبد خرید
-                      </button>
-                  )}
+                    {flagCart ? (
+                        <Button onClick={() => {
+                            authentication.removeCart(post)
+                            setFlagCart(!flagCart)
+                        }}>حذف از سبد خرید
+                        </Button>
+                    ) : (
+                        <>
+                            <Button onClick={() => {
+                                authentication.addCart({...post, count: number})
+                                setFlagCart(!flagCart)
+                            }}>اضافه به سبد خرید
+                            </Button>
+                            <input type='number' value={number} onChange={(e) => setNumber(e.target.value)}/>
+                        </>
+                    )}
+                    {flagMark ? (
+                        <Button onClick={() => {
+                            authentication.dislike(post)
+                            setFlagMark(!flagMark)
+                        }}>Dislike</Button>
+                    ) : (
+                        <Button onClick={() => {
+                            authentication.like(post)
+                            setFlagMark(!flagMark)
+                        }}>Like</Button>
+                    )}
                 </Col>
             </Row>
         </div>

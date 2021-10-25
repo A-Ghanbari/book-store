@@ -1,7 +1,6 @@
 import { useState } from "react";
 import classes from "./Login.module.scss";
 import authentication from "../../store/actions/actions";
-import {useSelector} from "react-redux";
 
 
 export default function Login({ flag }) {
