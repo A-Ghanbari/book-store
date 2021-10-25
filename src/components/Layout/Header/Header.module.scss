@@ -42,7 +42,8 @@
       .history,
       .story,
       .home,
-      .political {
+      .political,
+      .login {
         transition: all 0.3s;
 
         &:hover {
@@ -65,15 +66,22 @@
         color: var(--color-green);
         border-bottom: 8px solid var(--color-green);
       }
+      .login {
+        &:hover {
+          color: var(--color-pink);
+          border-bottom: 8px solid var(--color-pink);
+        }
+      }
+    }
+    .cart {
+      color: #fdd00f;
+      &:hover {
+        margin-bottom: -7px;
+        border-top: 7px solid rgb(255, 255, 255);
+      }
+    }
+    .profile {
+      color: #81d52e;
     }
   }
-}
-.close {
-  position: fixed;
-  z-index: 3;
-  background-color: red;
-  color: #fff;
-  padding: 20px;
-  top: 10%;
-  right: 10%;
 }

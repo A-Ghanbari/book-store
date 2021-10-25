@@ -1,4 +1,5 @@
 .login {
+  font-family: "Gandom";
   position: fixed;
   top: 0;
   right: 0;
@@ -7,7 +8,7 @@
   z-index: 2;
 
   content: "";
-  background-color: rgba(0, 0, 0, 0.835);
+  background-color: #000000e5;
   .form {
     display: flex;
     justify-content: center;
@@ -16,17 +17,98 @@
     text-align: center;
 
     .singin {
-      background-color: aqua;
-      padding: 50px;
-      margin-left: 100px;
-      inupt {
-        padding: 20px;
+      position: relative;
+      transition: all 1s;
+      background-color: #02021b;
+      color: #fff;
+      padding: 10px 50px 80px;
+      border-radius: 10px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      input {
+        color: #000;
+        margin: 5px;
+      }
+      h1 {
+        color: #fff;
+        padding: 30px 0;
+      }
+      .btn {
+        color: #000;
+        margin-top: 20px;
+        font-size: 17px;
+      }
+      .tosignup {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px;
+        cursor: pointer;
+        position: absolute;
+        transition: all 0.5s;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgb(255, 255, 255);
+        color: #000;
+        font-weight: 600;
+        &:hover {
+          background-color: rgb(0, 0, 0);
+          color: rgb(255, 255, 255);
+        }
       }
     }
     .singup {
-      background-color: burlywood;
+      position: relative;
+      transition: all 1s;
+      background-color: rgb(149, 250, 241);
       padding: 50px;
-      margin-right: 100px;
+      border-radius: 10px;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      padding: 10px 50px 80px;
+      h1 {
+        padding: 30px 0;
+      }
+      input {
+        color: #000;
+        margin: 5px;
+      }
+      .btn {
+        color: #000;
+        margin-top: 20px;
+        font-size: 17px;
+      }
+      .tosignin {
+        cursor: pointer;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px;
+        position: absolute;
+        transition: all 0.5s;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgb(0, 0, 0);
+        color: #fff;
+        font-weight: 600;
+        &:hover {
+          background-color: rgb(255, 255, 255);
+          color: #000;
+        }
+      }
+    }
+  }
+  .close {
+    cursor: pointer;
+    position: fixed;
+    z-index: 3;
+    transition: all 0.5s;
+    color: rgb(255, 255, 255);
+    font-size: 2.2em;
+    top: 5%;
+    right: 5%;
+    &:hover {
+      color: #f00;
     }
   }
 }

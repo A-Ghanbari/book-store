@@ -16,6 +16,7 @@ export default function Header() {
   // SIAVASH-------------------------------------------------------------------------------------------
   const [flag, setFlag] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [login, setLogin] = useState(true);
   const showDrawer = () => {
     setVisible(true);
   };
@@ -25,58 +26,64 @@ export default function Header() {
   return (
     <div>
       <Row justify="space-around" className={classes.header}>
-        <Col span={5} className={classes.logo}>
+        <Col span={4} className={classes.logo}>
           <Link href="/">
             <div className={classes.logobg} />
           </Link>
         </Col>
-        <Col span={19} className={classes.menu}>
+        <Col span={10} className={classes.menu}>
           <ul>
             <Link href="/">
-              <a className={classes.home}>
-                <li>خانه</li>
+              <a>
+                <li className={classes.home}>خانه</li>
               </a>
             </Link>
             <Link href="/category/history">
-              <a className={classes.history}>
-                <li>تاریخی</li>
+              <a>
+                <li className={classes.history}>تاریخی</li>
               </a>
             </Link>
             <Link href="/category/political">
-              <a className={classes.political}>
-                <li>سیاسی</li>
+              <a>
+                <li className={classes.political}>سیاسی</li>
               </a>
             </Link>
             <Link href="/category/story">
-              <a className={classes.story}>
-                <li>ادبیات و داستان</li>
+              <a>
+                <li className={classes.story}>ادبیات و داستان</li>
               </a>
             </Link>
-            <li
-              className={classes.button}
-              onClick={() => {
-                setFlag(true);
-              }}
-            >
-              ورود
-              <CgLogIn />
-            </li>
-            <li>
-              <Link href="/cart">
-                <a>
-                  <BsCart4 />
-                </a>
-              </Link>
-            </li>
-            {/*SIAVASH-------------------------------------------------------------*/}
-            <li>
-              {user && (
-                <>
+          </ul>
+        </Col>
+        <Col span={10} className={classes.menu}>
+          <ul style={{ justifyContent: "center" }}>
+            {login && (
+              <li
+                className={classes.login}
+                onClick={() => {
+                  setFlag(true);
+                }}
+              >
+                ورود
+                <CgLogIn style={{ marginBottom: "-6px", marginRight: 5 }} />
+              </li>
+            )}
+            {user && (
+              <>
+                <Link href="/cart">
+                  <a>
+                    <li className={classes.cart}>
+                      <BsCart4 />
+                    </li>
+                  </a>
+                </Link>
+                <li className={classes.profile}>
                   <CgProfile
                     style={{ display: "inline-block" }}
                     onClick={showDrawer}
                   />
                   <Drawer
+                    className={classes.drawer}
                     title={`خوش آمدید ${user} `}
                     placement="left"
                     onClose={onClose}
@@ -86,19 +93,15 @@ export default function Header() {
                     <p> علاقه مندی ها</p>
                     <p> خروج</p>
                   </Drawer>
-                </>
-              )}
-            </li>
-            {/*SIAVASH---------------------------------------------------------------*/}
+                </li>
+              </>
+            )}
           </ul>
         </Col>
       </Row>
       {flag && (
         <>
-          <Login flag={flag} />
-          <button className={classes.close} onClick={() => setFlag(false)}>
-            X
-          </button>
+          <Login setFlag={setFlag} setLogin={setLogin} />
         </>
       )}
     </div>
