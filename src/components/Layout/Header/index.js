@@ -1,6 +1,7 @@
-import { Col, Row } from "antd";
+import { Col, Row, Drawer } from "antd";
+
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Login from "../../Login";
 import classes from "./Header.module.scss";
 import { useSelector } from "react-redux";
@@ -14,6 +15,13 @@ export default function Header() {
   console.log("Details User in Head Site => ", user);
   // SIAVASH-------------------------------------------------------------------------------------------
   const [flag, setFlag] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const showDrawer = () => {
+    setVisible(true);
+  };
+  const onClose = () => {
+    setVisible(false);
+  };
   return (
     <div>
       <Row justify="space-around" className={classes.header}>
@@ -64,14 +72,20 @@ export default function Header() {
             <li>
               {user && (
                 <>
-                  <CgProfile style={{ display: "inline-block" }} />
-                  <p
-                    style={{
-                      margin: 0,
-                      color: "#fff",
-                      display: "inline-block",
-                    }}
-                  >{`Welcome ${user} `}</p>
+                  <CgProfile
+                    style={{ display: "inline-block" }}
+                    onClick={showDrawer}
+                  />
+                  <Drawer
+                    title={`خوش آمدید ${user} `}
+                    placement="left"
+                    onClose={onClose}
+                    visible={visible}
+                  >
+                    <p>Some contents...</p>
+                    <p> علاقه مندی ها</p>
+                    <p> خروج</p>
+                  </Drawer>
                 </>
               )}
             </li>
