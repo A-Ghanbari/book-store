@@ -11,13 +11,11 @@ export default function SinglePage({post}) {
     useEffect(() => {
         if (localStorage.getItem('bookMark')) {
             const booksMark = new Map(JSON.parse(localStorage.bookMark));
-            const keyBookMark = [...booksMark.keys()]
-            setFlagMark(keyBookMark.includes(post.title))
+            setFlagMark(booksMark.get(post.title)?true : false)
         }
         if (localStorage.getItem('cart')) {
-            const booksMark = new Map(JSON.parse(localStorage.cart));
-            const keyBookMark = [...booksMark.keys()]
-            setFlagCart(keyBookMark.includes(post.title))
+            const carts = new Map(JSON.parse(localStorage.cart));
+            setFlagCart(carts.get(post.title)?true : false)
         }
     }, [])
 

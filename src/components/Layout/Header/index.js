@@ -15,12 +15,9 @@ export default function Header() {
     const [flag, setFlag] = useState(false);
     const [visible, setVisible] = useState(false);
     useEffect(() => {
-        console.log(Cookies.get(user))
-        if (localStorage.getItem('authentication')) {
+        if (Cookies.get('token')) {
             const [user, pass] = localStorage.getItem('authentication').split(',')
-            if (Cookies.get(user)) {
                 authentication.login({user, pass})
-            }
         }
     }, [])
     const showDrawer = () => {

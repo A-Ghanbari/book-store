@@ -10,19 +10,19 @@ export default function authenticationReducer(state = '', action) {
                 return ''
             })()
         case 'login':
-            return (function load() {
-                const {user, pass} = action.payload
-                if (checkAuthentication(user, pass)) {
-                    const suid = require('rand-token').suid;
-                    const myToken = suid(16);
-                    Cookies.set(`${user}`, `${myToken}`, {expires: 7})
-                    return [user]
-                } else {
-                    return state
-                }
-            })()
+               return (function load() {
+                    const {user, pass} = action.payload
+                    if (checkAuthentication(user, pass)) {
+                        const suid = require('rand-token').suid;
+                        const myToken = suid(16);
+                        Cookies.set('token', `${myToken}`, {expires: 1})
+                        return [user]
+                    } else {
+                        return state
+                    }
+                })()
         case 'logout':
-            Cookies.remove(...action.payload)
+            Cookies.remove('token')
             return ''
         default :
             return state
