@@ -1,10 +1,10 @@
 import {Col, Row, Drawer} from "antd";
-
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import Login from "../../Login";
 import classes from "./Header.module.scss";
 import {useSelector} from "react-redux";
+import Cookies from "js-cookie";
 
 import {CgProfile, CgLogIn} from "react-icons/cg";
 import {BsCart4} from "react-icons/bs";
@@ -15,9 +15,12 @@ export default function Header() {
     const [flag, setFlag] = useState(false);
     const [visible, setVisible] = useState(false);
     useEffect(() => {
+        console.log(Cookies.get(user))
         if (localStorage.getItem('authentication')) {
             const [user, pass] = localStorage.getItem('authentication').split(',')
-            authentication.login({user, pass})
+            if (Cookies.get(user)) {
+                authentication.login({user, pass})
+            }
         }
     }, [])
     const showDrawer = () => {
