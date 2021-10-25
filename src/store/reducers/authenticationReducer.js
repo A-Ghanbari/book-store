@@ -7,7 +7,7 @@ export default function authenticationReducer(state = '', action) {
             return (function load() {
                 const {user, pass} = action.payload
                 localStorage.setItem(`authentication`, [`${user}`, `${pass}`])
-                return user
+                return ''
             })()
         case 'login':
             return (function load() {
