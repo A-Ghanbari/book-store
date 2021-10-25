@@ -7,7 +7,7 @@ export default function authenticationReducer(state = '', action) {
             return (function load() {
                 const {user, pass} = action.payload
                 localStorage.setItem(`authentication`, [`${user}`, `${pass}`])
-                return ''
+                return user
             })()
         case 'login':
             return (function load() {
@@ -15,17 +15,15 @@ export default function authenticationReducer(state = '', action) {
                 if (checkAuthentication(user, pass)) {
                     const suid = require('rand-token').suid;
                     const myToken = suid(16);
-                   Cookies.set(`${user}`, `${myToken}`, {expires: 7})
+                    Cookies.set(`${user}`, `${myToken}`, {expires: 7})
                     return [user]
                 } else {
-                   return state
+                    return state
                 }
             })()
-
         case 'logout':
-            const {user} = action.payload
-            return Cookies.remove(`${user}`)
-
+            Cookies.remove(...action.payload)
+            return ''
         default :
             return state
     }

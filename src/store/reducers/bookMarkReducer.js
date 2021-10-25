@@ -1,22 +1,24 @@
-export default function cartReducer(state = new Map(), action) {
+function bookMarkReducer(state = new Map(), action) {
     switch (action.type) {
-        case 'addCart':
+        case 'like':
             state.set(action.payload.title, action.payload)
             saveInLocalStorage()
             return state
-        case 'removeCart':
+        case 'dislike':
             state.delete(action.payload.title)
             saveInLocalStorage()
             return state
-        case 'loadCartLocalStorage':
-            if(localStorage.cart){
-                state = new Map(JSON.parse(localStorage.cart));
+        case 'loadBookMarkLocalStorage':
+            if(localStorage.bookMark){
+                state = new Map(JSON.parse(localStorage.bookMark));
             }
             return state
         default:
             return state
     }
     function saveInLocalStorage(){
-        localStorage.cart = JSON.stringify(Array.from(state.entries()));
+        localStorage.bookMark = JSON.stringify(Array.from(state.entries()));
     }
 }
+
+export default bookMarkReducer

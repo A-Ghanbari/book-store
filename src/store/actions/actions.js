@@ -21,12 +21,32 @@ function removeCart(payload) {
     return {type: 'removeCart', payload}
 }
 
+function loadCartLocalStorage() {
+    return {type: 'loadCartLocalStorage'}
+}
+
+function like(payload) {
+    return {type: 'like', payload}
+}
+
+function dislike(payload) {
+    return {type: 'dislike', payload}
+}
+
+function loadBookMarkLocalStorage() {
+    return {type: 'loadBookMarkLocalStorage'}
+}
+
 const authentication = bindActionCreators({
         signup,
         login,
         logout,
         addCart,
-        removeCart
+        removeCart,
+        loadCartLocalStorage,
+        like,
+        dislike,
+        loadBookMarkLocalStorage
     },
     store.dispatch
 )
