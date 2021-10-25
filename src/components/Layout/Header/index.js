@@ -14,6 +14,12 @@ export default function Header() {
     const user = useSelector((state) => state.user);
     const [flag, setFlag] = useState(false);
     const [visible, setVisible] = useState(false);
+    useEffect(() => {
+        if (localStorage.getItem('authentication')) {
+            const [user, pass] = localStorage.getItem('authentication').split(',')
+            authentication.login({user, pass})
+        }
+    }, [])
     const showDrawer = () => {
         setVisible(true);
     };
