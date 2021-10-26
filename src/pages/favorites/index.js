@@ -2,11 +2,12 @@ import { useSelector } from "react-redux";
 import authentication from "../../store/actions/actions";
 import { Table } from "antd";
 import { AiFillCloseCircle } from "react-icons/ai";
+import {useEffect, useState} from "react";
 
 function Favorites() {
   const user = useSelector((state) => state.user);
   const bookMark = useSelector((state) => [...state.bookMark.values()]);
-
+  const [flag, setFlag] = useState(false)
   const columns = [
     { title: "کتاب", dataIndex: "name", key: "book" },
     { title: "قیمت", dataIndex: "price", key: "price" },
@@ -18,7 +19,7 @@ function Favorites() {
         <a
           onClick={(e) => {
             authentication.dislike({ title: record.key });
-            e.target.parentElement.parentElement.remove();
+            setFlag(!flag)
           }}
         >
           <AiFillCloseCircle style={{ fontSize: 25, color: "red" }} />

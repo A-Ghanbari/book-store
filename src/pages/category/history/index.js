@@ -2,7 +2,6 @@ import Category from "../../../components/Category";
 import { historyBooks } from "../../../helper/filterBooks";
 
 function History({ history }) {
-  console.log(history);
   return (
     <>
       <Category posts={history} />

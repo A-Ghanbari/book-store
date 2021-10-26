@@ -14,7 +14,6 @@ export default function Category({ posts }) {
                   <img src={post.fields.cover.fields.file.url} />
                 </a>
               </Link>
-
               <h2>{post.fields.title}</h2>
             </div>
           </Col>

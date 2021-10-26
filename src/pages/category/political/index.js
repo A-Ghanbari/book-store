@@ -2,7 +2,6 @@ import Category from "../../../components/Category";
 import { politicalBooks } from "../../../helper/filterBooks";
 
 function Political({ political }) {
-  console.log(political);
   return (
     <>
       <Category posts={political} />

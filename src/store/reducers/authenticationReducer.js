@@ -1,4 +1,3 @@
-import {suid} from "rand-token";
 import Cookies from "js-cookie";
 
 export default function authenticationReducer(state = '', action) {

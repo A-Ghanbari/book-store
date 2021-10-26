@@ -2,7 +2,6 @@ import Category from "../../../components/Category";
 import { storyBooks } from "../../../helper/filterBooks";
 
 function Story({ story }) {
-  console.log(story);
   return (
     <>
       <Category posts={story} />

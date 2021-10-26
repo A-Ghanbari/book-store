@@ -1,9 +1,7 @@
-import { Row, Col, Button } from "antd";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { Row, Col } from "antd";
 import classes from "./SinglePage.module.scss";
 import authentication from "../../store/actions/actions";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 export default function SinglePage({ post }) {
@@ -20,7 +18,6 @@ export default function SinglePage({ post }) {
       setFlagCart(carts.get(post.title) ? true : false);
     }
   }, []);
-  console.log(post);
   return (
     <div className={classes.card}>
       <Row gutter={[20, 20]}>
@@ -87,11 +84,9 @@ export default function SinglePage({ post }) {
         </Col>
         <Col span={24} className={classes.overview}>
           <h2>{`قسمتی از ${post.title}`}</h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: documentToHtmlString(post.overview),
-            }}
-          />
+          <div>
+            {post.overview.content[0].content[0].value}
+          </div>
         </Col>
         <Col span={24}>
           <h2>درباره نویسنده</h2>
@@ -104,11 +99,9 @@ export default function SinglePage({ post }) {
         </Col>
         <Col span={17}>
           <h1>{post.author}</h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: documentToHtmlString(post.authorOverview),
-            }}
-          />
+          <div>
+            {post.authorOverview.content[0].content[0].value}
+          </div>
         </Col>
       </Row>
     </div>
