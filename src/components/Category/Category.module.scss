@@ -1,5 +1,15 @@
 .card {
+  transition: all 0.4s;
+  background-color: #fff;
   padding: 20px;
   border: 1px solid #000;
   border-radius: 10px;
+  height: 100%;
+  &:hover {
+    box-shadow: 0 0 10px 5px #09041d;
+  }
+  h2 {
+    text-align: center;
+    padding: 20px 5px;
+  }
 }

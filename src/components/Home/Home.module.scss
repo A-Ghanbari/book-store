@@ -59,8 +59,9 @@
       align-items: center;
       .logintxt {
         padding: 70px;
-        background-color: #ffffff;
+        background-color: #ffffffe3;
         text-align: center;
+        border-radius: 5px;
       }
     }
   }
@@ -103,6 +104,9 @@
   padding: 50px;
   .slide {
     margin: 0 20px;
+    img {
+      border: 2px solid #09041d;
+    }
     h3 {
       background-color: rgba(5, 5, 5, 0.89);
       color: #fff;

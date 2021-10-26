@@ -1,12 +1,64 @@
 .card {
+  font-family: "Gandom";
+  --color-bg: #191927;
+  --color-blue: #00c6eb;
+  --color-green: #81d52e;
+  --color-yellow: #fdd00f;
+  --color-pink: #d42c70;
+  --color-orange: #ff3b18;
+
   padding: 50px;
   border: 1px solid #000;
   border-radius: 10px;
   background-color: #fff;
-  .buttom {
-    background-color: aqua;
+  margin: 20px 50px;
+  .cover {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 60%;
+      border-radius: 10px;
+    }
   }
-  .input {
-    background-color: blueviolet;
+  .title {
+    .like {
+      font-size: 30px;
+      margin-bottom: 50px;
+      color: var(--color-orange);
+    }
+    .addbtn,
+    .removebtn {
+      cursor: pointer;
+      background-color: var(--color-bg);
+      color: #fdd00f;
+      width: 90%;
+      padding: 10px;
+      font-size: 20px;
+      border: none;
+      &:hover {
+        color: var(--color-green);
+      }
+    }
+    .input {
+      background-color: #fdd00f;
+      font-size: 20px;
+      border: none;
+      padding: 10px;
+      width: 10%;
+      text-align: center;
+    }
+    .removebtn {
+      width: 100%;
+      &:hover {
+        color: var(--color-orange);
+      }
+    }
+  }
+  .overview {
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: rgb(240, 240, 240);
+    padding: 20px;
+    margin: 30px 0;
   }
 }

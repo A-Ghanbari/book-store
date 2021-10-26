@@ -1,6 +1,7 @@
 import { Col, Row } from "antd";
 import classes from "./Home.module.scss";
 import Link from "next/link";
+import Login from "../Login";
 
 export default function HomeLogin() {
   return (

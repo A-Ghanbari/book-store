@@ -74,14 +74,41 @@
       }
     }
     .cart {
-      color: #fdd00f;
+      color: #fff;
+      transition: all 0.3s;
       &:hover {
-        margin-bottom: -7px;
-        border-top: 7px solid rgb(255, 255, 255);
+        margin-top: -7px;
+        border-bottom: 7px solid var(--color-yellow);
+        color: var(--color-yellow);
       }
     }
     .profile {
-      color: #81d52e;
+      color: #fff;
+      transition: all 0.3s;
+      &:hover {
+        margin-top: -7px;
+        border-bottom: 7px solid var(--color-green);
+        color: var(--color-green);
+      }
     }
+  }
+}
+.drawer {
+  background-color: #191927c4;
+
+  a {
+    color: #000;
+    font-size: 20px;
+    margin: 20px 0 !important;
+    &:hover {
+      color: #d42c70;
+    }
+  }
+  .logout {
+    color: #ff3b18;
+    font-size: 20px;
+    cursor: pointer;
+    border-top: 1px solid #ff3b18;
+    margin-top: 10px;
   }
 }

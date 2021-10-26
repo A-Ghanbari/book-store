@@ -1,7 +1,21 @@
 .footer {
-  background-color: rgb(54, 38, 99);
+  background-color: #09041d;
   color: #fff;
   padding: 60px;
   text-align: center;
-  height: 200px;
+  // height: 200px;
+  ul {
+    list-style: none;
+
+    li {
+      font-size: 20px;
+      padding: 7px;
+      a {
+        color: #fff;
+        &:hover {
+          color: yellow;
+        }
+      }
+    }
+  }
 }

@@ -12,7 +12,7 @@ export default function HomeSwiper({ books }) {
     <div>
       <Swiper
         className={classes.swiper}
-        slidesPerView={6}
+        slidesPerView={5}
         pagination={true}
         autoplay={{
           delay: 3000,

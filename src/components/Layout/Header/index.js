@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import Login from "../../Login";
 import classes from "./Header.module.scss";
 import { useSelector } from "react-redux";
-import { CgProfile, CgLogIn } from "react-icons/cg";
+import { CgProfile, CgLogIn, CgLogOut } from "react-icons/cg";
 import { BsCart4 } from "react-icons/bs";
+import { AiFillHeart } from "react-icons/ai";
 import authentication from "../../../store/actions/actions";
 
 export default function Header() {
@@ -90,19 +91,35 @@ export default function Header() {
                   >
                     <Link href="/cart">
                       <a>
-                        سبد خرید
-                        <BsCart4 />
+                        <div>
+                          سبد خرید
+                          <BsCart4
+                            style={{ marginBottom: "-4px", marginRight: 5 }}
+                          />
+                        </div>
                       </a>
                     </Link>
                     <Link href="/favorites">
                       <a>
-                        <p> علاقه مندی ها</p>
+                        <div style={{ margin: "20px 0" }}>
+                          علاقه مندی ها
+                          <AiFillHeart
+                            style={{ marginBottom: "-3px", marginRight: 5 }}
+                          />
+                        </div>
                       </a>
                     </Link>
-                    <button onClick={() => authentication.logout(user)}>
-                      {" "}
+                    <div
+                      className={classes.logout}
+                      onClick={() => {
+                        authentication.logout(user), setLogin(true);
+                      }}
+                    >
                       خروج
-                    </button>
+                      <CgLogOut
+                        style={{ marginBottom: "-6px", marginRight: 5 }}
+                      />
+                    </div>
                   </Drawer>
                 </li>
               </>
