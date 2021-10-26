@@ -1,13 +1,12 @@
 import { Col, Row, Drawer } from "antd";
-
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Login from "../../Login";
 import classes from "./Header.module.scss";
 import { useSelector } from "react-redux";
-
 import { CgProfile, CgLogIn } from "react-icons/cg";
 import { BsCart4 } from "react-icons/bs";
+import authentication from "../../../store/actions/actions";
 
 export default function Header() {
   // SIAVASH------------------------------------------------------------------------------------------
@@ -89,9 +88,21 @@ export default function Header() {
                     onClose={onClose}
                     visible={visible}
                   >
-                    <p>Some contents...</p>
-                    <p> علاقه مندی ها</p>
-                    <p> خروج</p>
+                    <Link href="/cart">
+                      <a>
+                        سبد خرید
+                        <BsCart4 />
+                      </a>
+                    </Link>
+                    <Link href="/favorites">
+                      <a>
+                        <p> علاقه مندی ها</p>
+                      </a>
+                    </Link>
+                    <button onClick={() => authentication.logout(user)}>
+                      {" "}
+                      خروج
+                    </button>
                   </Drawer>
                 </li>
               </>

@@ -3,7 +3,6 @@ import classes from "./Category.module.scss";
 import Link from "next/link";
 
 export default function Category({ posts }) {
-  console.log(posts);
   return (
     <div style={{ padding: 50 }}>
       <Row gutter={[20, 20]}>
