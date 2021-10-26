@@ -21,7 +21,7 @@ function Favorites() {
             e.target.parentElement.parentElement.remove();
           }}
         >
-          <AiFillCloseCircle />
+          <AiFillCloseCircle style={{ fontSize: 25, color: "red" }} />
         </a>
       ),
     },
