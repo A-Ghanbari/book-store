@@ -8,6 +8,7 @@ export default function Layout({ children }) {
     useEffect(() => {
         authentication.loadCartLocalStorage()
         authentication.loadBookMarkLocalStorage()
+        authentication.loadRateLocalStorage()
     }, [])
   return (
     <div>

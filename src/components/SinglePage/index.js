@@ -10,6 +10,7 @@ export default function SinglePage({post}) {
     const [flagCart, setFlagCart] = useState(false);
     const [flagMark, setFlagMark] = useState(false);
     const [number, setNumber] = useState(1);
+    const [score, setScore] = useState(0)
     useEffect(() => {
         if (localStorage.getItem("bookMark")) {
             const booksMark = new Map(JSON.parse(localStorage.bookMark));
@@ -18,6 +19,14 @@ export default function SinglePage({post}) {
         if (localStorage.getItem("cart")) {
             const carts = new Map(JSON.parse(localStorage.cart));
             setFlagCart(carts.get(post.title) ? true : false);
+        }
+        if (localStorage.getItem('rate')) {
+            const rates = new Map(JSON.parse((localStorage.rate)))
+            rates.get(post.title) ? rates.forEach(e => {
+                if (e.title === post.title) {
+                    setScore(e.rate)
+                }
+            }) : false
         }
     }, []);
 
@@ -64,7 +73,10 @@ export default function SinglePage({post}) {
                             )}
                             {flagCart &&
                             <Rate style={{backgroundColor: '#36516a', borderRadius: '50%', border: "4px solid #36516a"}}
-                                  tooltips={desc} count={4}/>}
+                                  tooltips={desc} value={score} onChange={(value) => {
+                                authentication.rate({...post, rate: value})
+                                setScore(value)
+                            }} count={4}/>}
                             <h2>قیمت : {post.price}</h2>
 
                             {flagCart ? (

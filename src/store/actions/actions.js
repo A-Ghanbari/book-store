@@ -37,6 +37,14 @@ function loadBookMarkLocalStorage() {
     return {type: 'loadBookMarkLocalStorage'}
 }
 
+function rate(payload) {
+    return {type: 'addRate', payload}
+}
+
+function loadRateLocalStorage() {
+    return {type: 'loadRateLocalStorage'}
+}
+
 const authentication = bindActionCreators({
         signup,
         login,
@@ -47,6 +55,8 @@ const authentication = bindActionCreators({
         like,
         dislike,
         loadBookMarkLocalStorage,
+        rate,
+        loadRateLocalStorage
     },
     store.dispatch
 )
