@@ -46,7 +46,7 @@ const authentication = bindActionCreators({
         loadCartLocalStorage,
         like,
         dislike,
-        loadBookMarkLocalStorage
+        loadBookMarkLocalStorage,
     },
     store.dispatch
 )

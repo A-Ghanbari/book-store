@@ -1,8 +1,8 @@
 import {useSelector} from "react-redux";
-import {Table} from "antd";
+import {Table, Rate} from "antd";
 import authentication from "../../store/actions/actions";
 import {AiFillCloseCircle} from "react-icons/ai";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 export default function Cart() {
     const user = useSelector((state) => state.user);
@@ -10,6 +10,7 @@ export default function Cart() {
     const [flag, setFlag] = useState(false)
     const columns = [
         {title: "نام کتاب", dataIndex: "name", key: "book"},
+        {title: "امتیاز", dataIndex: "score", key: "score"},
         {title: "قیمت", dataIndex: "price", key: "price"},
         {title: "تعداد", dataIndex: "number", key: "number"},
         {title: " جمع قیمت", dataIndex: "total", key: "total"},

@@ -1,4 +1,4 @@
-import {Col, Row, Drawer} from "antd";
+import {Col, Row, Drawer, Badge, Avatar} from "antd";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import Login from "../../Login";
@@ -11,10 +11,14 @@ import authentication from "../../../store/actions/actions";
 import Cookies from "js-cookie";
 
 export default function Header() {
+    const cart = useSelector(state => state.cart)
+    const bookMark = useSelector(state => state.bookMark)
     useEffect(() => {
         if (Cookies.get('token')) {
-            const [user, pass] = localStorage.getItem('authentication').split(',')
-            authentication.login({user, pass})
+            if (localStorage.getItem('authentication')) {
+                const [user, pass] = localStorage.getItem('authentication').split(',')
+                authentication.login({user, pass})
+            }
         }
     }, [])
     const user = useSelector((state) => state.user);
@@ -66,15 +70,18 @@ export default function Header() {
                                 <Link href="/cart">
                                     <a>
                                         <li className={classes.cart}>
-                                            <BsCart4/>
+                                            <Badge count={cart.size}>
+                                                <Avatar shape="square" size="large" style={{backgroundColor: '#191927'}}
+                                                        icon={<BsCart4/>}/>
+                                            </Badge>
                                         </li>
                                     </a>
                                 </Link>
-                                <li className={classes.profile}>
+                                <li className={classes.profile} onClick={showDrawer}>
                                     <CgProfile
                                         style={{display: "inline-block"}}
-                                        onClick={showDrawer}
                                     />
+                                </li>
                                     <Drawer
                                         className={classes.drawer}
                                         title={`خوش آمدید ${user} `}
@@ -85,20 +92,30 @@ export default function Header() {
                                         <Link href="/cart">
                                             <a>
                                                 <div>
+                                                    <Badge count={cart.size}>
+                                                        <Avatar shape="square" size="large"
+                                                                style={{backgroundColor: 'white'}}
+                                                                icon={<BsCart4 style={{
+                                                                    marginBottom: "-4px",
+                                                                    marginRight: 5,
+                                                                    color: 'black'
+                                                                }}/>}
+                                                        />
+                                                    </Badge>
                                                     سبد خرید
-                                                    <BsCart4
-                                                        style={{marginBottom: "-4px", marginRight: 5}}
-                                                    />
                                                 </div>
                                             </a>
                                         </Link>
                                         <Link href="/favorites">
                                             <a>
                                                 <div style={{margin: "20px 0"}}>
+                                                    <Badge count={bookMark.size}>
+                                                        <Avatar shape="square" size="large"
+                                                                style={{backgroundColor: 'white'}} icon={<AiFillHeart
+                                                            style={{marginBottom: "-3px", marginRight: 5, color: 'red'}}
+                                                        />}/>
+                                                    </Badge>
                                                     علاقه مندی ها
-                                                    <AiFillHeart
-                                                        style={{marginBottom: "-3px", marginRight: 5}}
-                                                    />
                                                 </div>
                                             </a>
                                         </Link>
@@ -114,7 +131,6 @@ export default function Header() {
                                             />
                                         </div>
                                     </Drawer>
-                                </li>
                             </>
                         ) : (
                             <>
