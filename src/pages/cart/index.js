@@ -36,8 +36,8 @@ export default function Cart() {
         return {
             key: book.title,
             name: book.title,
-            score: <Rate style={{backgroundColor: '#36516a', borderRadius: '50%', border: "4px solid #36516a"}}
-                         tooltips={desc} value={rates.get(book.title).rate}
+            score: <Rate disabled style={{backgroundColor: '#36516a', borderRadius: '50%', border: "4px solid #36516a"}}
+                         tooltips={desc} value={rates.get(book.title)?.rate}
                          count={4}/>,
             price: book.price,
             number: book.count,
